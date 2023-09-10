@@ -1,0 +1,10 @@
+{
+  "name": "Complex Export",
+  "id": "1047239044692043427",
+  "api": "1.0.0",
+  "main": "public/code.js",
+  "editorType": [
+    "figma"
+  ],
+  "ui": "public/index.html"
+}

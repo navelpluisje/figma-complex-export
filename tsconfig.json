@@ -1,0 +1,40 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@figma"
+    ],
+    "ignoreDeprecations": "5.0",
+    "paths": {
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@stores/*": [
+        "src/stores/*"
+      ],
+      "@components/*": [
+        "src/components/*",
+      ],
+      "@constants/*": [
+        "src/constants/*",
+      ],
+      "@constants": [
+        "src/constants/index.ts",
+      ],
+      "@constants": [
+        "src/constants/index.ts",
+      ],
+    },
+  },
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "node_modules/*",
+    "__sapper__/*",
+    "public/*",
+    "config/*",
+  ]
+}
