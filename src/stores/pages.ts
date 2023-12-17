@@ -1,4 +1,5 @@
-import { MessageTypes, PluginMessage } from '@constants';
+import { MessageTypes } from '@constants';
+import type { PluginMessage } from '@constants';
 import { writable } from 'svelte/store';
 
 export interface PageData {

@@ -22,13 +22,13 @@
       <li>Click the Export button</li>
     </ol>
     <p>
-      Read more documentation at <a href="/">Here</a>
+      Read more documentation at <a href="/">here</a>
     </p>
   </Content>
   <ButtonFooter>
-    <Button onClick={start}>Start</Button>
+    <Button onClick={start}>Start your export</Button>
   </ButtonFooter>
-  <Sidebar class="bg-image"></Sidebar>
+  <Sidebar class="bg-image" />
 </PageLayout>
 
 <style lang="postcss">
@@ -43,11 +43,10 @@
   }
 
   li {
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
 
     &::marker {
       font-weight: bold;
     }
   }
-
 </style>

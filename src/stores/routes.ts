@@ -34,7 +34,7 @@ const createRoutes = () => {
   const goBack = () => {
     if (history.length) {
       update((routes) => {
-        routes.currentPage = routes.history.pop();
+        routes.currentPage = routes.history.pop() as RoutePages;
         return routes;
       });
     }

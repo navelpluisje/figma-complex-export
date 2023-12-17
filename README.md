@@ -1,18 +1,7 @@
+# Figma Complex Export
 
+A figma plugin where you can define where and how to export files to
 
-* https://tomquinonero.com/blog/write-a-figma-plugin-using-svelte/
-* https://github.com/brianlovin/figma-export-zip/blob/main/src/plugin.ts
+## Thanks to:
 
-## Pages
-
-Prefix with underscore to ewxclude from the export 
-
-* `_page` will not be exported
-* `page` will be exported
-
-
-
-
-* Select pages
-* Create > shows list of folders and files created
-* Download/export zip with files
+- https://tomquinonero.com/blog/write-a-figma-plugin-using-svelte/ for setting up a figma plugin with Svelte

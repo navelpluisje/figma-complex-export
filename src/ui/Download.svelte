@@ -4,7 +4,8 @@
   import PageLayout from '@components/PageLayout.svelte';
   import Content from '@components/Content.svelte';
   import Sidebar from '@components/Sidebar.svelte';
-  import RadioItem, { RadioChangeEvent } from '@components/RadioItem.svelte';
+  import RadioItem from '@components/RadioItem.svelte';
+  import type { RadioChangeEvent } from '@components/RadioItem.svelte';
   import ButtonFooter from '@components/ButtonFooter.svelte';
   import type { PluginMessage } from '@constants';
   import { MessageTypes } from '@constants';
@@ -29,7 +30,7 @@
     selected = event.detail.value;
   };
 
-  $: files = $downloadList[selected] || {};
+  $: files = Object.values($downloadList[selected] || {}).sort((a, b) => a.name.localeCompare(b.name));
 
 </script>
 
@@ -43,7 +44,7 @@
         {/each}
       </section>
       <section class="image-list">
-        {#each Object.values(files) as file}
+        {#each files as file}
           <div>{file.name} (scale: {file.scale})</div>
         {/each}
       </section>
@@ -81,5 +82,12 @@
   .image-list {
     height: 100%;
     overflow: scroll;
+
+    div {
+      padding: .5rem;
+      &:hover {
+        background-color: var(--figma-color-bg-hover);
+      }
+    }
   }
 </style>

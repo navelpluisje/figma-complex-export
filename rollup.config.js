@@ -3,13 +3,10 @@ import livereload from 'rollup-plugin-livereload';
 import svelte from 'rollup-plugin-svelte';
 import sveltePreprocess from 'svelte-preprocess';
 import postcss from 'rollup-plugin-postcss';
-
+import html from '@rollup/plugin-html';
 import { sharedPlugins } from './config/rollup.plugins';
 
 // Minifier
-
-// Inline to single html
-import htmlBundle from 'rollup-plugin-html-bundle'
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -50,9 +47,8 @@ export default [
 
       // This inject the bundled version of main.js
       // into the the template
-      htmlBundle({
-        template: 'src/template.html',
-        target: 'public/index.html',
+      html({
+        fileName: 'index.html',
         inline: true,
       }),
 

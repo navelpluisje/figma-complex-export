@@ -1,4 +1,4 @@
-import { getFolderData, isExportPage } from './regexChecks';
+import { getFileData, getFolderData, isExportPage } from './regexChecks';
 
 export type Scale = '1' | '2';
 
@@ -6,13 +6,14 @@ export type Tree = {
   [foldername: string]: {
     [nodeId: string]: {
       name: string;
-      scale: Scale,
+      scale: Scale;
+      hasPink?: boolean;
     }
   }
 }
 
 
-const createFileNames = (node: BaseNode, acc): Tree => {
+const createFileNames = (node: BaseNode, acc: Tree): Tree => {
   const result: Tree = { ...acc };
   const children = (node as PageNode).children;
 
@@ -24,13 +25,13 @@ const createFileNames = (node: BaseNode, acc): Tree => {
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    if (!folderData && child?.children && child.children.length) {
+    if (folderData === null && child?.children && child.children.length) {
       console.log(child.name, (child as FrameNode).children.length);
       return createFileNames(child, acc);
     }
 
-    const folders = folderData[1].split(',');
-    const scales = (folderData[3] || '1').split(',') as Scale[];
+    const folders = (folderData as RegExpExecArray)[1].split(',');
+    const scales = ((folderData as RegExpExecArray)[3] || '1').split(',') as Scale[];
 
     folders.forEach((folderName) => {
       acc[folderName.trim()] = {
@@ -39,12 +40,22 @@ const createFileNames = (node: BaseNode, acc): Tree => {
     });
 
     (child as FrameNode).children.forEach((child) => {
+      let hasPink = false;
+      let name = child.name;
+      const fileData = getFileData(child.name);
+
+      if (Array.isArray(fileData) && fileData[1] === 'pink') {
+        hasPink = true;
+        name = child.name.split(/\s/)[0];
+      }
+
       folders.forEach((folderName, index) => {
         acc[folderName.trim()] = {
           ...(result[folderName.trim()] || {}),
           [child.id]: {
-            name: child.name,
+            name,
             scale: scales[index],
+            hasPink 
           },
         };
       });
@@ -55,13 +66,14 @@ const createFileNames = (node: BaseNode, acc): Tree => {
   return tree;
 };
 
-export const getFileTree = (pageIds: string[]): Tree => {
+export const getFileTree = (pageIds: string[]) => {
   const tree = pageIds.reduce<Tree>((acc, id) => {
     const page = figma.getNodeById(id);
 
-    if (isExportPage(page.name)) {
-      return createFileNames(figma.getNodeById(id), acc);
+    if (page && isExportPage(page.name)) {
+      return createFileNames(figma.getNodeById(id) as BaseNode, acc);
     }
+
     return acc;
   }, {});
 

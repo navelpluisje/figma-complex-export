@@ -3,5 +3,9 @@ export const isExportPage = (name: string): boolean => {
 };
 
 export const getFolderData = (name: string) => {
-  return /^[\w\s]*\(folder=([a-zA-Z0-9,\s/]*)\)(\s*\(scale=([0-9,\s]*)\))?/mi.exec(name);
+  return /^[\w\s]*\(folder=([a-zA-Z0-9,\s/]*)\)(\s*\(scale=([0-9,.\s]*)\))?/mi.exec(name);
+};
+
+export const getFileData = (name: string) => {
+  return /^[\w\s]*\((pink)\)?/mi.exec(name);
 };

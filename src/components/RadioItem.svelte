@@ -59,7 +59,7 @@
     margin-left: calc(-1 * var(--size-xsmall));
 
     &:hover {
-      border-color: var(--blue);
+      background-color: var(--figma-color-bg-hover);
     }
 	}
 
@@ -69,7 +69,8 @@
 	}
 
 	input:checked + label {
-		background-color: #daebf7;
+		background-color: var(--figma-color-bg-brand);
+		border: 1px solid var(--figma-color-bg-brand);
   }
 }
 </style>

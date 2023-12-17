@@ -26,7 +26,7 @@
     </Route>
   </main>
   <footer>
-    Footer
+    Developed by Erwin Goossen aka Navelpluisje
   </footer>
 </section>
 
@@ -52,5 +52,6 @@
   footer {
     border-top: 1px solid var(--figma-color-border);
     padding: .5rem 1rem;
+    text-align: center;
   }
 </style>

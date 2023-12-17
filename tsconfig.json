@@ -15,26 +15,23 @@
         "src/stores/*"
       ],
       "@components/*": [
-        "src/components/*",
+        "src/components/*"
       ],
       "@constants/*": [
-        "src/constants/*",
+        "src/constants/*"
       ],
       "@constants": [
-        "src/constants/index.ts",
-      ],
-      "@constants": [
-        "src/constants/index.ts",
-      ],
+        "src/constants/index.ts"
+      ]
     },
   },
   "include": [
-    "src/**/*",
+    "src/**/*"
   ],
   "exclude": [
     "node_modules/*",
     "__sapper__/*",
     "public/*",
-    "config/*",
+    "config/*"
   ]
 }

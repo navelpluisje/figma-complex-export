@@ -8,19 +8,29 @@ function typedArrayToBuffer(array: Uint8Array) {
 }
 
 export const createDownloadZip = async (data: BlobTree) => {
-  console.log('Start generating images');
   downloadStatus.setMessage('Start generating images');
   const zip = new JsZip();
 
   // Replace with a proper readme
-  zip.file('Hello.txt', 'Hello World\n');
+  zip.file('readme.txt', `
+    These files were exported from Figma using the Complex Export Plugin.\n
+    If you like what this plugin does, consider donating at https://buymeacoffee.com/navelpluisje.\n
+    \n
+    Thank you and regards,
+
+    Erwin
+  `);
 
   for (const folderName in data) {
-    let folder: JsZip;
+    let folder: JsZip | null;
     if (folderName === 'root') {
       folder = zip;
     } else {
       folder = zip.folder(folderName);
+    }
+
+    if (!folder) {
+      return;
     }
 
     for (const nodeId in data[folderName]) {
@@ -32,7 +42,10 @@ export const createDownloadZip = async (data: BlobTree) => {
       folder.file(`${name}${extension}`, blob);
     }
   }
+
   const zipFile = await zip.generateAsync({ type: 'blob' });
+  
   downloadStatus.setMessage('');
+  
   saveAs(zipFile, 'example.zip');
 };
