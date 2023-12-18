@@ -20,7 +20,7 @@ Within the group you can have your separate layers to build your knob out of. De
 Projects can have multiple pages. It is not required of course, but wil probably help you structure your project.
 Within a page you can add one or more frames. Each frame can contain multiple images for export. Per Frame you can set the export information; Which folder should it end up in and which scale levels do you need.
 
-<img src="assets/plugin-folder-structure.png" style="width: 50%">
+<img src="assets/plugin-folder-structure.png" style="width: 50%;">
 
 In the image an example:
 The page mcp has a couple of frames. One of the frames is named default and has 3 other frames as children. The children have export info:
@@ -37,7 +37,7 @@ For the folders there are 2 options to add and these are 'aligned'.
 The first one is the folder. This looks like:
 
 - `(folder=root)`: This will export the images to the root folder. This is the top level folder. When only having 1 folder and the scale option is not set, all images will be scaled to 100%.
-- `(folder=root, 200)`: This will export the images to both the root folder and a folder named 200. Having multiple folders requires also the scale option.
+- `(folder=root,200)`: This will export the images to both the root folder and a folder named 200. Having multiple folders requires also the scale option.
 
 The second one is the scale. This looks like:
 
@@ -48,6 +48,10 @@ And now all together:
 
 - `(folder=root,200) (scale=1,2)`: This will move all images to the root folder scaled by 100% and also moves all the images to a folder named 200, scaled by 200%
 - `(folder=root,200/default) (scale=2,2)`: This will move all images to the root folder and a folder named 200/default, scaled by 200%
+
+#### Image sizing meta data
+
+In some application you are able to add image sizing metadata in the image. The consists of a 1px border in some places. These define which areas of an image may or may not scale. more info on this can be found on the [REAPER](https://www.reaper.fm/sdk/walter/images.php#imagetypes) website.
 
 #### Export the images
 
