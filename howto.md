@@ -15,6 +15,8 @@ Congrats, that's step 1.
 Slider Creator uses a frame or group as a base node. If you want a group to be a slider stack, the plugin will move it into a newly created frame.
 Within the group you can have your separate layers to build your knob out of. Deciding which layer to slide is managed by naming. There are 4 keywords to start your layer name with:
 
+All images needs to be created in 100%. this will prevent weird artifacts of down scaling.
+
 #### Project setup
 
 Projects can have multiple pages. It is not required of course, but wil probably help you structure your project.
@@ -32,9 +34,9 @@ The above will get applied to all the children of this frame.
 
 #### Export options
 
-For the folders there are 2 options to add and these are 'aligned'.
+For the folders there are 2 options to add and these are 'aligned'. This means: when you have 2 folders, you will need 2 scale. The first folder gets the first scale. The second folder the second scale. You can add as many pairs as you want.
 
-The first one is the folder. This looks like:
+The first option is the folder. This looks like:
 
 - `(folder=root)`: This will export the images to the root folder. This is the top level folder. When only having 1 folder and the scale option is not set, all images will be scaled to 100%.
 - `(folder=root,200)`: This will export the images to both the root folder and a folder named 200. Having multiple folders requires also the scale option.
@@ -51,16 +53,35 @@ And now all together:
 
 #### Image sizing meta data
 
-In some application you are able to add image sizing metadata in the image. The consists of a 1px border in some places. These define which areas of an image may or may not scale. more info on this can be found on the [REAPER](https://www.reaper.fm/sdk/walter/images.php#imagetypes) website.
+In some application you are able to add image sizing metadata in the image. The consists of a 1px border in some places. These define which areas of an image may or may not scale. more info on this can be found on the [REAPER](https://www.reaper.fm/sdk/walter/images.php#imagetypes) website. An example below.
+
+<img src="assets/plugin-resize-pink.png" style="width: 50%;">
+
+<img src="assets/plugin-resize-pink-filename.png" style="width: 50%;">
+
+you can add an option to the image name `(pink)`. When you add this to the name and the folder has multiple scales, the plugin will try to keep the pink en yellow lines at 1px. Below an example of the scale 200% and 100%. They are scaled to the same size here, but at the 100% image, the pink and yellow lines have twice the thickness.
+
+<img src="assets/plugin-resize-pink.png" style="width: 45%;">
+<img src="assets/plugin-resize-pink-small.png" style="width: 45%;">
+
+While testing this worked best for 100% and 200%. Scaling 150% might result in blurred lines, what will break the resizing.
 
 #### Export the images
 
-- Build upon pages. In the plugin you can select the pages to export
-  ![Select pages](/assets/plugin-page-select.png)
-- Select the pages to export
-  ![Select pages](/assets/plugin-page-selected.png)
+Once you've created your images you can export them. First open the plugin. A welcome screen appears. Click `Start your export`.
 
-- Click the generate button. All data wil be prepared. A list of all the folders to generate will displayed. Clicking on the folder name will show a list with all the images inside the folder
-  ![Select pages](/assets/plugin-download-list.png)
+The screen for selecting the pages appears:
 
-- Click start download to start the actual download
+![Select pages](/assets/plugin-page-select.png)
+
+Now you can select the pages you want to export:
+
+![Select pages](/assets/plugin-page-selected.png)
+
+Once the pages are selected click teh `Prepare the selection` button. This will prepare all the data for the actual export. You will now see a list of all teh folders to export on the left side. You can click on the folder name to see the list of images for that folder:
+
+![Select pages](/assets/plugin-download-list.png)
+
+Now click `Start Download`, this will create a zipfile. You will be asked where to store the file.
+
+And that's it.
