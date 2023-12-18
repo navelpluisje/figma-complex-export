@@ -2,7 +2,7 @@
 
 ### Install
 
-- In your favorite browser visit: [Complex export](https://www.figma.com/community/plugin/1047239044692043427/Complex-Export)
+- In your favorite browser visit: [Complex export](https://www.figma.com/community/plugin/1047239044692043427/complex-export)
 - Or, search in your App for `Complex Export` in the Community area
 - Click the install button
 
