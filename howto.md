@@ -20,7 +20,7 @@ Within the group you can have your separate layers to build your knob out of. De
 Projects can have multiple pages. It is not required of course, but wil probably help you structure your project.
 Within a page you can add one or more frames. Each frame can contain multiple images for export. Per Frame you can set the export information; Which folder should it end up in and which scale levels do you need.
 
-![Select pages](/assets/plugin-folder-structure.png)
+<img src="/assets/plugin-folder-structure.png" style="width: 50%">
 
 In the image an example:
 The page mcp has a couple of frames. One of the frames is named default and has 3 other frames as children. The children have export info:
