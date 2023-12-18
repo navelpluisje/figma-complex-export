@@ -21,6 +21,10 @@ This plugin will help you simplify exporting a whole bunch of images into differ
 Projects can have multiple pages. It is not required of course, but wil probably help you structure your project.
 Within a page you can add one or more frames. Each frame can contain multiple images for export. Per Frame you can set the export information; Which folder should it end up in and which scale levels do you need.
 
+<img src="assets/plugin-page-exclude.png" style="width: 50%;">
+
+To exclude pages form the export list, you can add an underscore before and after the name. In the above example the `_Components_` page will be excluded from the page selection list.
+
 <img src="assets/plugin-folder-structure.png" style="width: 50%;">
 
 In the image an example:
@@ -77,7 +81,7 @@ Now you can select the pages you want to export:
 
 ![Select pages](/assets/plugin-page-selected.png)
 
-Once the pages are selected click teh `Prepare the selection` button. This will prepare all the data for the actual export. You will now see a list of all teh folders to export on the left side. You can click on the folder name to see the list of images for that folder:
+Once the pages are selected click teh `Prepare the selection` button. This will prepare all the data for the actual export. You will now see a list of all the folders to export on the left side. You can click on the folder name to see the list of images for that folder:
 
 ![Select pages](/assets/plugin-download-list.png)
 
