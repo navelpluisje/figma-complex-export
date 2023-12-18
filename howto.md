@@ -2,8 +2,8 @@
 
 ### Install
 
-- In your favorite browser visit: [Slider Creator](https://www.figma.com/community/plugin/1275561670400781749/Slider-Creator)
-- Or, search in your App for `Slider Creator` in the Community area
+- In your favorite browser visit: [Complex export](https://www.figma.com/community/plugin/1047239044692043427/Complex-Export)
+- Or, search in your App for `Complex Export` in the Community area
 - Click the install button
 
 Congrats, that's step 1.
