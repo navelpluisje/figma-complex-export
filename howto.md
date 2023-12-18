@@ -12,10 +12,9 @@ Congrats, that's step 1.
 
 #### intro
 
-Slider Creator uses a frame or group as a base node. If you want a group to be a slider stack, the plugin will move it into a newly created frame.
-Within the group you can have your separate layers to build your knob out of. Deciding which layer to slide is managed by naming. There are 4 keywords to start your layer name with:
+This plugin will help you simplify exporting a whole bunch of images into different folders with different scaling. Read more below on how to set it up.
 
-All images needs to be created in 100%. this will prevent weird artifacts of down scaling.
+> All images needs to be created in 100%. this will prevent weird artifacts of down scaling.
 
 #### Project setup
 
@@ -82,6 +81,6 @@ Once the pages are selected click teh `Prepare the selection` button. This will 
 
 ![Select pages](/assets/plugin-download-list.png)
 
-Now click `Start Download`, this will create a zipfile. You will be asked where to store the file.
+Now click `Start Download`, this will create a zip file. You will be asked where to store the file.
 
 And that's it.
