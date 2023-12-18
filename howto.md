@@ -2,9 +2,9 @@
 
 ### Install
 
-* In your favorite browser visit: [Slider Creator](https://www.figma.com/community/plugin/1275561670400781749/Slider-Creator)
-* Or, search in your App for `Slider Creator` in the Community area
-* Click the install button
+- In your favorite browser visit: [Slider Creator](https://www.figma.com/community/plugin/1275561670400781749/Slider-Creator)
+- Or, search in your App for `Slider Creator` in the Community area
+- Click the install button
 
 Congrats, that's step 1.
 
@@ -15,39 +15,48 @@ Congrats, that's step 1.
 Slider Creator uses a frame or group as a base node. If you want a group to be a slider stack, the plugin will move it into a newly created frame.
 Within the group you can have your separate layers to build your knob out of. Deciding which layer to slide is managed by naming. There are 4 keywords to start your layer name with:
 
-#### Nodes
+#### Project setup
 
-* `cap`: Tha cap of the slider.
-* `cap-range`: The cap will move within the range of the `cap-range`. After creating the stack, the opacity of the `cap-range` will be set to `0`.
-* `track`: The track of the slider.
-* `progress`: The visual representation of the progress
-    * `progress-center`: The progress for the value will be left and right from the center
+Projects can have multiple pages. It is not required of course, but wil probably help you structure your project.
+Within a page you can add one or more frames. Each frame can contain multiple images for export. Per Frame you can set the export information; Which folder should it end up in and which scale levels do you need.
 
-There is no need to use them all in every knob off course. I hope this image will give you a better understanding of the above:
+![Select pages](/assets/plugin-folder-structure.png)
 
-![knob settings](/assets/knob-keywords.png)
+In the image an example:
+The page mcp has a couple of frames. One of the frames is named default and has 3 other frames as children. The children have export info:
 
-And the structure would look like:
+- export to folder `root` with scale `1`
+- export to folder `200` with scale `2`
 
-![knob settings](/assets/slider-structure.png)
+The above will get applied to all the children of this frame.
 
-#### Using the plugin
+#### Export options
 
-* Select the Group with the knob, or a frame where the slider group is it's first child.
-* Right click the selection
-* Select plugins and then select `Slider Creator`
+For the folders there are 2 options to add and these are 'aligned'.
 
-> The next modal pops up:
->
-> ![knob settings](/assets/modal.jpg)
+The first one is the folder. This looks like:
 
-* Fill in the number of steps the stack should have.
-* Set a name for the step frames. Defaults to `step`
-* Set the direction of the slider. The first 2 are vertical sliders, the last 2 are horizontal
-* Set the direction of the steps. Defaults to vertical
-* Click submit and the magic happens
+- `(folder=root)`: This will export the images to the root folder. This is the top level folder. When only having 1 folder and the scale option is not set, all images will be scaled to 100%.
+- `(folder=root, 200)`: This will export the images to both the root folder and a folder named 200. Having multiple folders requires also the scale option.
 
-The end result (steps: 5, degrees: 270) wll look like this:
+The second one is the scale. This looks like:
 
-![knob settings](/assets/stack.png)
+- `(scale=2)`: This will scale all the images to 200%.
+- `(scale=1,2)`: This will scale all the images to 100% and 200% for the corresponding folders.
 
+And now all together:
+
+- `(folder=root,200) (scale=1,2)`: This will move all images to the root folder scaled by 100% and also moves all the images to a folder named 200, scaled by 200%
+- `(folder=root,200/default) (scale=2,2)`: This will move all images to the root folder and a folder named 200/default, scaled by 200%
+
+#### Export the images
+
+- Build upon pages. In the plugin you can select the pages to export
+  ![Select pages](/assets/plugin-page-select.png)
+- Select the pages to export
+  ![Select pages](/assets/plugin-page-selected.png)
+
+- Click the generate button. All data wil be prepared. A list of all the folders to generate will displayed. Clicking on the folder name will show a list with all the images inside the folder
+  ![Select pages](/assets/plugin-download-list.png)
+
+- Click start download to start the actual download
