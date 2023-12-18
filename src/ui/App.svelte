@@ -5,7 +5,6 @@
   import BreadCrumb from '@components/BreadCrumb.svelte';
   import Start from './Start.svelte';
   import Download from './Download.svelte';
-
 </script>
 
 <section>

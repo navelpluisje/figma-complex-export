@@ -3,7 +3,7 @@ import livereload from 'rollup-plugin-livereload';
 import svelte from 'rollup-plugin-svelte';
 import sveltePreprocess from 'svelte-preprocess';
 import postcss from 'rollup-plugin-postcss';
-import html from '@rollup/plugin-html';
+import htmlBundle from 'rollup-plugin-html-bundle';
 import { sharedPlugins } from './config/rollup.plugins';
 
 // Minifier
@@ -47,8 +47,9 @@ export default [
 
       // This inject the bundled version of main.js
       // into the the template
-      html({
-        fileName: 'index.html',
+      htmlBundle({
+        template: 'src/index.html',
+        target: 'public/index.html',
         inline: true,
       }),
 

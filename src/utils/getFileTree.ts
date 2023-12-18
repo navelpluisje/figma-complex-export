@@ -26,12 +26,15 @@ const createFileNames = (node: BaseNode, acc: Tree): Tree => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (folderData === null && child?.children && child.children.length) {
-      console.log(child.name, (child as FrameNode).children.length);
       return createFileNames(child, acc);
     }
 
-    const folders = (folderData as RegExpExecArray)[1].split(',');
-    const scales = ((folderData as RegExpExecArray)[3] || '1').split(',') as Scale[];
+    if (folderData === null) {
+      return acc;
+    }
+
+    const folders = (folderData )[1].split(',');
+    const scales = ((folderData )[3] || '1').split(',') as Scale[];
 
     folders.forEach((folderName) => {
       acc[folderName.trim()] = {
